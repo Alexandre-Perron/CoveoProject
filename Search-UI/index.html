@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" >
     <meta name="viewport" content="width=device-width, height=device-height" >
-    <title>Title</title>
+    <title>Pokedex</title>
     <link rel="stylesheet" href="./css/CoveoFullSearch.css"/>
     <link rel="stylesheet" href="./css/coveoextension.css"/>
     <script src="js/CoveoJsSearch.Lazy.js"></script>
@@ -36,6 +36,8 @@
         <div class="CoveoFacet" data-title="Author" data-field="@author" data-tab="All"></div>
         <div class="CoveoFacet" data-title="Year" data-field="@year" data-tab="All"></div>
         <div class="CoveoFacet" data-title="Month" data-field="@month" data-tab="All"></div>
+        <div class="CoveoFacet" data-title="Pokemon-Type" data-field="@pokemon_type" data-tab="All"></div>
+        <div class="CoveoFacet" data-title="Generation" data-field="@pokemon_generation" data-tab="All"></div>
       </div>
       <div class="coveo-results-column">
         <div class="CoveoShareQuery"></div>
@@ -61,8 +63,30 @@
         <div class="CoveoHiddenQuery"></div>
         <div class="CoveoDidYouMean"></div>
         <div class="CoveoErrorReport"></div>
-        <div class="CoveoResultList" data-layout="list" data-wait-animation="fade" data-auto-select-fields-to-include="true"></div>
-        <div class="CoveoResultList" data-layout="card" data-wait-animation="fade" data-auto-select-fields-to-include="true"></div>
+        <div class="CoveoResultList" data-layout="card" data-wait-animation="fade" data-auto-select-fields-to-include="false">
+
+          <script id="MyTemplate" type="text/html" class="result-template">
+            <div class="coveo-result-frame">
+              <div class="coveo-result-row">
+                <div class="coveo-result-cell" style="width:85px;text-align:center;padding-top:7px;">
+                  <span class="CoveoFieldValue" data-field="@pokemon_picture" data-helper="image" data-html-value='true' data-helper-options-height="50px"></span>                  
+                  <div class="CoveoQuickview"></div>
+                </div>
+                <div class="coveo-result-cell" style="padding-left:15px;">
+                  <div class="coveo-result-row">
+                    <div class="coveo-result-cell">
+                      <a class="CoveoResultLink" style="font-size:18px;"></a>
+                    </div>
+                    <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
+                      <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </script>
+
+        </div>
         <div class="CoveoPager"></div>
         <div class="CoveoLogo"></div>
         <div class="CoveoResultsPerPage"></div>
